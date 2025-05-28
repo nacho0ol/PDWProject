@@ -11,7 +11,6 @@
     />
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="logo">REALITY CLUB</div>
       <ul class="nav-menu">
@@ -40,12 +39,19 @@
             <li><a href="#">Never Get Better</a></li>
           </ul>
         </li>
+        <li class="nav-item" id="login-item">
+          <a href="#" id="login-btn">Login</a>
+        </li>
+        <li class="nav-item" id="account-item" style="display: none">
+          <a href="#" id="account-btn">My Account</a>
+        </li>
+        <li class="nav-item" id="logout-item" style="display: none">
+          <a href="#" id="logout-btn">Logout</a>
+        </li>
       </ul>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
-      <!-- Collection 1 -->
       <section class="collection">
         <h2>What Do You Really Wear?</h2>
         <div class="product-grid">
@@ -110,7 +116,6 @@
         </div>
       </section>
 
-      <!-- Collection 2 -->
       <section class="collection">
         <h2>GET ACCESSORIES</h2>
         <div class="product-grid">
@@ -175,7 +180,6 @@
         </div>
       </section>
 
-      <!-- Collection 3 -->
       <section class="collection">
         <h2>NEWEST ROCKSTAR</h2>
         <div class="product-grid">
@@ -244,10 +248,9 @@
       </section>
     </main>
 
-    <!-- Popup -->
     <div class="popup-overlay" id="preOrderPopup">
       <div class="popup-content">
-        <div class="popup-close">&times;</div>
+        <div class="popup-close" id="preOrderPopupClose">&times;</div>
         <h2 class="popup-title">Pre-Order Product</h2>
         <div class="popup-product-info">
           <img src="" alt="Product Image" class="popup-product-image" />
@@ -266,7 +269,28 @@
       </div>
     </div>
 
-    <!-- Footer -->
+    <div class="popup-overlay" id="loginPopup">
+      <div class="popup-content login-popup-content">
+        <div class="popup-close" id="loginPopupClose">&times;</div>
+        <h2 class="popup-title">Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit" class="login-submit-btn">Login</button>
+        </form>
+        <p
+          id="login-message"
+          style="margin-top: 1rem; color: var(--neon-accent)"
+        ></p>
+      </div>
+    </div>
+
     <footer class="footer">
       <p>&copy; 2025 Reality Club Store. All rights reserved.</p>
       <div class="socials">

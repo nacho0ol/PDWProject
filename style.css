@@ -539,3 +539,132 @@ body::before {
     text-align: center;
   }
 }
+
+/* ... (CSS Anda yang sudah ada) ... */
+
+/* Login/Logout/Account Button Styling (Mirip dengan Nav Item Lain) */
+#login-item a,
+#logout-item a,
+#account-item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.5rem 0; /* Sesuaikan padding jika perlu */
+  letter-spacing: 1px;
+  position: relative;
+  cursor: pointer;
+}
+
+#login-item a::after,
+#logout-item a::after,
+#account-item a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--neon-accent);
+  transition: width 0.3s ease;
+}
+
+#login-item a:hover,
+#logout-item a:hover,
+#account-item a:hover {
+  color: var(--neon-accent);
+}
+
+#login-item a:hover::after,
+#logout-item a:hover::after,
+#account-item a:hover::after {
+  width: 100%;
+}
+
+/* Login Popup Specific Styles */
+.login-popup-content {
+  max-width: 400px; /* Sedikit lebih kecil untuk form login */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left; /* Label dan input rata kiri */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3); /* Latar belakang input lebih gelap */
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  outline: none;
+  border-color: var(--neon-accent);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.login-submit-btn {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--neon-accent),
+    #00b3c7
+  ); /* Gradient yang lebih vibrant */
+  color: #0a0a0a; /* Warna teks lebih gelap agar kontras */
+  font-weight: 700; /* Lebih tebal */
+  padding: 0.9rem 2.5rem; /* Padding disesuaikan */
+  border-radius: 50px; /* Tombol lebih bulat */
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2); /* Shadow lebih halus */
+  text-transform: uppercase; /* Teks uppercase */
+  letter-spacing: 1px; /* Spasi antar huruf */
+}
+
+.login-submit-btn:hover {
+  transform: translateY(-3px) scale(1.03); /* Efek hover lebih menarik */
+  box-shadow: 0 8px 20px rgba(0, 240, 255, 0.3);
+  background: linear-gradient(
+    135deg,
+    #00e0ef,
+    #00a3b3
+  ); /* Warna hover sedikit beda */
+}
+
+#login-message {
+  font-size: 0.9rem; /* Ukuran font pesan login */
+}
+
+/* Responsive adjustments (Tambahan jika diperlukan untuk form login) */
+@media (max-width: 576px) {
+  .login-popup-content {
+    padding: 2rem 1rem; /* Kurangi padding di layar kecil */
+  }
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    padding: 0.7rem 0.9rem;
+  }
+  .login-submit-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
