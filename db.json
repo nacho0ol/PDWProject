@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "name": "Club Athleisure Halfzip Sweatshirt",
+    "price": "$60.00",
+    "imageUrl": "assets/image copy.png",
+    "category": 1,
+    "soldOut": false
+  },
+  {
+    "id": 2,
+    "name": "Club Athleisure Sweatshorts",
+    "price": "$60.00",
+    "imageUrl": "assets/image.png",
+    "category": 1,
+    "soldOut": false
+  },
+  {
+    "id": 3,
+    "name": "Club Athleisure Classic Crew Socks",
+    "price": "$60.00",
+    "imageUrl": "assets/kaoskaki.png",
+    "category": 1,
+    "soldOut": false
+  },
+  {
+    "id": 4,
+    "name": "Reality Club - Sunny Days T-shirt",
+    "price": "$100.00",
+    "imageUrl": "assets/sunnydays.png",
+    "category": 1,
+    "soldOut": true
+  },
+  {
+    "id": 5,
+    "name": "Reality Club – Sunny Days Keychain",
+    "price": "$60.00",
+    "imageUrl": "assets/keychain.png",
+    "category": 2,
+    "soldOut": false
+  },
+  {
+    "id": 6,
+    "name": "CLUB Red Silk Bandana",
+    "price": "$60.00",
+    "imageUrl": "assets/bandana.png",
+    "category": 2,
+    "soldOut": false
+  },
+  {
+    "id": 7,
+    "name": "Reality Club - Lovestruck Premium Canvas Totebag",
+    "price": "$60.00",
+    "imageUrl": "assets/totebag.png",
+    "category": 2,
+    "soldOut": false
+  },
+  {
+    "id": 8,
+    "name": "Reality Club - Black Logo Electronic Card",
+    "price": "$100.00",
+    "imageUrl": "assets/card.png",
+    "category": 2,
+    "soldOut": true
+  },
+  {
+    "id": 9,
+    "name": "Reality Club 9th Anniversary Away Jersey",
+    "price": "$60.00",
+    "imageUrl": "assets/jersey.png",
+    "category": 3,
+    "soldOut": false
+  },
+  {
+    "id": 10,
+    "name": "Reality Club Not Today Journal",
+    "price": "$60.00",
+    "imageUrl": "assets/journal.png",
+    "category": 3,
+    "soldOut": false
+  },
+  {
+    "id": 11,
+    "name": "Reality Club - Lovestruck Limited Enamel Pin",
+    "price": "$60.00",
+    "imageUrl": "assets/pin.png",
+    "category": 3,
+    "soldOut": false
+  },
+  {
+    "id": 12,
+    "name": "Reality Club - Am I Bothering You? Stainless Steel Mug",
+    "price": "$100.00",
+    "imageUrl": "assets/mug.png",
+    "category": 3,
+    "soldOut": true
+  },
+  {
+    "id": 13,
+    "name": "Faiz Photocard",
+    "price": "$20.00",
+    "imageUrl": "https://i.pinimg.com/736x/fd/c0/86/fdc0866a1174683bcd42ac1704d2fd82.jpg",
+    "category": 1,
+    "soldOut": false
+  }
+]

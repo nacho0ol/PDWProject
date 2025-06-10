@@ -668,3 +668,102 @@ body::before {
     font-size: 1rem;
   }
 }
+
+/* ===== STYLE BARU UNTUK ADMIN PANEL (Tambahkan di akhir file) ===== */
+
+#admin-login-item a {
+  /* Style ini bisa disesuaikan agar mirip dengan tombol login lain */
+  color: #ffcf40; /* Warna kuning untuk membedakan */
+}
+
+#admin-login-item a:hover {
+  color: #fff;
+}
+
+.admin-section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    background-color: rgba(20, 20, 30, 0.7);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.admin-section h2, .admin-section h3 {
+    text-align: center;
+    color: var(--neon-accent);
+    margin-bottom: 2rem;
+}
+
+.admin-form-container {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#product-form .form-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--neon-accent), #00b3c7);
+    color: #0a0a0a;
+    font-weight: 700;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.admin-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 240, 255, 0.3);
+}
+
+.admin-btn.cancel {
+    background: linear-gradient(135deg, #555, #333);
+    color: #fff;
+}
+
+.admin-product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.admin-product-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-item-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.edit-btn { background-color: #3a7bd5; }
+.edit-btn:hover { background-color: #00d2ff; }
+.delete-btn { background-color: #e53935; }
+.delete-btn:hover { background-color: #f44336; }

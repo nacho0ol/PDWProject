@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+    <!-- Navbar dengan tambahan tombol Admin Login -->
     <nav class="navbar">
       <div class="logo">REALITY CLUB</div>
       <ul class="nav-menu">
@@ -39,8 +40,12 @@
             <li><a href="#">Never Get Better</a></li>
           </ul>
         </li>
+        <!-- Tombol login user dan admin dipisah -->
         <li class="nav-item" id="login-item">
           <a href="#" id="login-btn">Login</a>
+        </li>
+        <li class="nav-item" id="admin-login-item">
+          <a href="#" id="admin-login-btn">Admin Login</a>
         </li>
         <li class="nav-item" id="account-item" style="display: none">
           <a href="#" id="account-btn">My Account</a>
@@ -51,228 +56,69 @@
       </ul>
     </nav>
 
+    <!-- ===== BAGIAN BARU: ADMIN PANEL (Tersembunyi) ===== -->
+<section id="admin-panel" class="admin-section" style="display: none;">
+    <h2>Admin Panel - Kelola Produk</h2>
+    <div class="admin-form-container">
+        <!-- Ini adalah form untuk menambah/mengedit produk -->
+        <form id="product-form">
+            <input type="hidden" id="product-id">
+            <div class="form-group">
+                <label for="product-name">Nama Produk</label>
+                <input type="text" id="product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Harga</label>
+                <input type="text" id="product-price" required placeholder="$50.00">
+            </div>
+            <div class="form-group">
+                <label for="product-image">URL Gambar</label>
+                <input type="text" id="product-image" required placeholder="assets/image.png">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="admin-btn" id="save-product-btn">Tambah Produk</button>
+                <button type="button" class="admin-btn cancel" id="cancel-edit-btn" style="display: none;">Batal Edit</button>
+            </div>
+        </form>
+    </div>
+    <div id="admin-product-list-container">
+        <h3>Daftar Produk Saat Ini</h3>
+        <div id="admin-product-list">
+            <!-- Daftar produk admin akan dimuat di sini oleh JavaScript -->
+        </div>
+
+        <!-- BAGIAN YANG HILANG ADA DI SINI -->
+        <button id="export-json-btn" class="admin-btn" style="margin-top: 2rem;">Simpan Perubahan ke Console</button>
+        
+    </div>
+</section>
+
+    <!-- Konten utama akan diisi oleh JavaScript -->
     <main class="main-content">
       <section class="collection">
         <h2>What Do You Really Wear?</h2>
-        <div class="product-grid">
-          <div
-            class="product-card"
-            data-product-name="Club Athleisure Halfzip Sweatshirt"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/image copy.png"
-                alt="Club Athleisure Halfzip Sweatshirt"
-              />
-            </div>
-            <h3>Club Athleisure Halfzip Sweatshirt</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Club Athleisure Sweatshorts"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img src="assets/image.png" alt="Club Athleisure Sweatshorts" />
-            </div>
-            <h3>Club Athleisure Sweatshorts</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Club Athleisure Classic Crew Socks"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/kaoskaki.png"
-                alt="Club Athleisure Classic Crew Socks"
-              />
-            </div>
-            <h3>Club Athleisure Classic Crew Socks</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Reality Club - Sunny Days T-shirt"
-            data-product-price="$100.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/sunnydays.png"
-                alt="Reality Club - Sunny Days T-shirt"
-              />
-            </div>
-            <h3>Reality Club - Sunny Days T-shirt</h3>
-            <p>$100.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-            <span class="badge sold-out">SOLD OUT</span>
-          </div>
-        </div>
+        <div class="product-grid" id="public-product-grid-1"></div>
       </section>
-
       <section class="collection">
         <h2>GET ACCESSORIES</h2>
-        <div class="product-grid">
-          <div
-            class="product-card"
-            data-product-name="Reality Club – Sunny Days Keychain"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/keychain.png"
-                alt="Reality Club – Sunny Days Keychain"
-              />
-            </div>
-            <h3>Reality Club – Sunny Days Keychain</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="CLUB Red Silk Bandana"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img src="assets/bandana.png" alt="CLUB Red Silk Bandana" />
-            </div>
-            <h3>CLUB Red Silk Bandana</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Reality Club - Lovestruck Premium Canvas Totebag"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/totebag.png"
-                alt="Reality Club - Lovestruck Premium Canvas Totebag"
-              />
-            </div>
-            <h3>Reality Club - Lovestruck Premium Canvas Totebag</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Reality Club - Black Logo Electronic Card"
-            data-product-price="$100.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/card.png"
-                alt="Reality Club - Black Logo Electronic Card"
-              />
-            </div>
-            <h3>Reality Club - Black Logo Electronic Card</h3>
-            <p>$100.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-            <span class="badge sold-out">SOLD OUT</span>
-          </div>
-        </div>
+        <div class="product-grid" id="public-product-grid-2"></div>
       </section>
-
       <section class="collection">
         <h2>NEWEST ROCKSTAR</h2>
-        <div class="product-grid">
-          <div
-            class="product-card"
-            data-product-name="Reality Club 9th Anniversary Away Jersey"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/jersey.png"
-                alt="Reality Club 9th Anniversary Away Jersey"
-              />
-            </div>
-            <h3>Reality Club 9th Anniversary Away Jersey</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Reality Club Not Today Journal"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/journal.png"
-                alt="Reality Club Not Today Journal"
-              />
-            </div>
-            <h3>Reality Club Not Today Journal</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Reality Club - Lovestruck Limited Enamel Pin"
-            data-product-price="$60.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/pin.png"
-                alt="Reality Club - Lovestruck Limited Enamel Pin"
-              />
-            </div>
-            <h3>Reality Club - Lovestruck Limited Enamel Pin</h3>
-            <p>$60.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-          </div>
-          <div
-            class="product-card"
-            data-product-name="Reality Club - Am I Bothering You? Stainless Steel Mug"
-            data-product-price="$100.00"
-          >
-            <div class="img-container">
-              <img
-                src="assets/mug.png"
-                alt="Reality Club - Am I Bothering You? Stainless Steel Mug"
-              />
-            </div>
-            <h3>Reality Club - Am I Bothering You? Stainless Steel Mug</h3>
-            <p>$100.00</p>
-            <span class="badge pre-order">PRE-ORDER</span>
-            <span class="badge sold-out">SOLD OUT</span>
-          </div>
-        </div>
+        <div class="product-grid" id="public-product-grid-3"></div>
       </section>
     </main>
 
+    <!-- Popup Pre-Order (Tidak Berubah) -->
     <div class="popup-overlay" id="preOrderPopup">
-      <div class="popup-content">
-        <div class="popup-close" id="preOrderPopupClose">&times;</div>
-        <h2 class="popup-title">Pre-Order Product</h2>
-        <div class="popup-product-info">
-          <img src="" alt="Product Image" class="popup-product-image" />
-          <div class="popup-product-details">
-            <h4 id="popupProductName"></h4>
-            <span id="popupProductPrice"></span>
-          </div>
-        </div>
-        <p>
-          Tertarik dengan produk ini? Klik tombol di bawah untuk pre-order
-          melalui WhatsApp admin kami.
-        </p>
-        <a href="#" class="whatsapp-btn" id="whatsappBtn" target="_blank">
-          Pre-Order via WhatsApp
-        </a>
-      </div>
+        <!-- Konten popup pre-order tetap sama -->
     </div>
 
+    <!-- Popup Login User (Tidak Berubah) -->
     <div class="popup-overlay" id="loginPopup">
       <div class="popup-content login-popup-content">
         <div class="popup-close" id="loginPopupClose">&times;</div>
-        <h2 class="popup-title">Login</h2>
+        <h2 class="popup-title">Login User</h2>
         <form id="loginForm">
           <div class="form-group">
             <label for="username">Username</label>
@@ -284,19 +130,38 @@
           </div>
           <button type="submit" class="login-submit-btn">Login</button>
         </form>
-        <p
-          id="login-message"
-          style="margin-top: 1rem; color: var(--neon-accent)"
-        ></p>
+        <p id="login-message" style="margin-top: 1rem; color: var(--neon-accent)"></p>
+      </div>
+    </div>
+    
+    <!-- ===== POPUP BARU: LOGIN ADMIN ===== -->
+    <div class="popup-overlay" id="adminLoginPopup">
+      <div class="popup-content login-popup-content">
+        <div class="popup-close" id="adminLoginPopupClose">&times;</div>
+        <h2 class="popup-title">Login Admin</h2>
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="admin-username">Username</label>
+            <input type="text" id="admin-username" name="admin-username" required />
+          </div>
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <input type="password" id="admin-password" name="admin-password" required />
+          </div>
+          <button type="submit" class="login-submit-btn">Login Admin</button>
+        </form>
+        <p id="admin-login-message" style="margin-top: 1rem; color: var(--neon-accent)"></p>
       </div>
     </div>
 
+
     <footer class="footer">
-      <p>&copy; 2025 Reality Club Store. All rights reserved.</p>
-      <div class="socials">
-        <a href="#">Instagram</a> | <a href="#">YouTube</a> |
-        <a href="#">TikTok</a>
-      </div>
+        <!-- Konten footer tetap sama -->
+        <p>&copy; 2025 Reality Club Store. All rights reserved.</p>
+        <div class="socials">
+          <a href="#">Instagram</a> | <a href="#">YouTube</a> |
+          <a href="#">TikTok</a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
