@@ -429,33 +429,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== KODE EVENT LISTENER LAIN (Popups, dll.) =====
-  function attachPublicEventListeners() {
-    const preOrderPopup = document.getElementById("preOrderPopup");
-    const whatsappBtn = document.getElementById("whatsappBtn");
-    const adminWhatsapp = "6285225705041";
-    document.querySelectorAll(".badge.pre-order").forEach((button) => {
-        if (!button.parentElement.querySelector(".badge.sold-out")) {
-          button.addEventListener("click", function () {
-              const productCard = this.closest(".product-card");
-              const productName = productCard.getAttribute("data-product-name");
-              const productPrice = productCard.getAttribute("data-product-price");
-              const productImageSrc = productCard.querySelector("img").src;
+// ===== KODE EVENT LISTENER LAIN (Popups, dll.) =====
+function attachPublicEventListeners() {
+  // Menangani klik pada tombol PRE-ORDER
+  document.querySelectorAll(".badge.pre-order").forEach((button) => {
+    // Pastikan event listener hanya ditambahkan jika produk tidak sold out
+    if (!button.parentElement.querySelector(".badge.sold-out")) {
+      button.addEventListener("click", function () {
+        
+        // LANGKAH 1: Cek apakah pengguna sudah login dari localStorage
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+          
+          // --- JIKA SUDAH LOGIN ---
+          // Lanjutkan proses redirect ke WhatsApp seperti sebelumnya
+          
+          // Ambil data produk dari atribut elemen
+          const productCard = this.closest(".product-card");
+          const productName = productCard.getAttribute("data-product-name");
+          const productPrice = productCard.getAttribute("data-product-price");
 
-              if(preOrderPopup) {
-                preOrderPopup.querySelector(".popup-product-image").src = productImageSrc;
-                preOrderPopup.querySelector("#popupProductName").textContent = productName;
-                preOrderPopup.querySelector("#popupProductPrice").textContent = productPrice;
-                
-                const message = `Halo Admin Reality Club, saya ingin pre-order produk berikut:\n\nNama: ${productName}\nHarga: ${productPrice}\n\nMohon informasi lebih lanjut. Terima kasih!`;
-                if(whatsappBtn) whatsappBtn.href = `https://wa.me/${adminWhatsapp}?text=${encodeURIComponent(message)}`;
+          // Buat pesan default untuk WhatsApp
+          const message = `Halo Admin Reality Club, saya ingin pre-order produk berikut:\n\nNama: ${productName}\nHarga: ${productPrice}\n\nMohon informasi lebih lanjut. Terima kasih!`;
+          
+          // Buat URL WhatsApp yang lengkap
+          const whatsappUrl = `https://wa.me/6285225705041?text=${encodeURIComponent(message)}`;
+          
+          // Alihkan (redirect) pengguna ke URL WhatsApp
+          window.location.href = whatsappUrl;
 
-                preOrderPopup.classList.add("active");
-              }
-          });
+        } else {
+          
+          // --- JIKA BELUM LOGIN ---
+          // Tampilkan pesan dan munculkan popup login
+
+          alert("Anda harus login terlebih dahulu untuk melakukan pre-order.");
+          const loginPopup = document.getElementById("loginPopup"); //
+          if (loginPopup) {
+            loginPopup.classList.add("active"); //
+          }
         }
-    });
-  }
+      });
+    }
+  });
+}
 
   // Menutup semua popup
   document.querySelectorAll('.popup-close').forEach(btn => {
